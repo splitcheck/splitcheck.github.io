@@ -1010,7 +1010,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           ; // check that server trusts us
 
-          this.http.get("http://54.164.165.203/oauth.php", {
+          this.http.get("https://54.164.165.203/oauth.php", {
             params: {
               "idToken": idToken
             }
@@ -1222,7 +1222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           });
-          return this.http.get("http://54.164.165.203/yelp.php?businesses/search?", {
+          return this.http.get("https://54.164.165.203/yelp.php?businesses/search?", {
             headers: reqHeader,
             params: {
               "location": "boston",
