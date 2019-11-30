@@ -118,7 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Location", function() { return Location; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -7674,7 +7674,7 @@ DeprecatedI18NPipesModule.decorators = [
  * A DI Token representing the main rendering context. In a browser this is the DOM Document.
  *
  * Note: Document might not be available in the Application Context when Application and Rendering
- * Contexts are not the same (e.g. when running the application into a Web Worker).
+ * Contexts are not the same (e.g. when running the application in a Web Worker).
  *
  * \@publicApi
  * @type {?}
@@ -7745,7 +7745,7 @@ function isPlatformWorkerUi(platformId) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('8.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('8.2.14');
 
 /**
  * @fileoverview added by tsickle
@@ -8018,7 +8018,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8088,8 +8088,8 @@ function Update() { }
 if (false) {}
 /**
  * Represents the header configuration options for an HTTP request.
- *
- * Instances should be assumed immutable with lazy parsing.
+ * Instances are immutable. Modifying methods return a cloned
+ * instance with the change. The original object is never changed.
  *
  * \@publicApi
  */
@@ -8169,22 +8169,22 @@ class HttpHeaders {
         }
     }
     /**
-     * Checks for existence of a header by a given name.
+     * Checks for existence of a given header.
      *
      * @param {?} name The header name to check for existence.
      *
-     * @return {?} Whether the header exits.
+     * @return {?} True if the header exists, false otherwise.
      */
     has(name) {
         this.init();
         return this.headers.has(name.toLowerCase());
     }
     /**
-     * Retrieves the first header value that matches a given name.
+     * Retrieves the first value of a given header.
      *
-     * @param {?} name The header name to retrieve.
+     * @param {?} name The header name.
      *
-     * @return {?} A string if the header exists, null otherwise
+     * @return {?} The value string if the header exists, null otherwise
      */
     get(name) {
         this.init();
@@ -8202,9 +8202,9 @@ class HttpHeaders {
         return Array.from(this.normalizedNames.values());
     }
     /**
-     * Retrieves a list of header values for a given header name.
+     * Retrieves a list of values for a given header.
      *
-     * @param {?} name The header name from which to retrieve the values.
+     * @param {?} name The header name from which to retrieve values.
      *
      * @return {?} A string of values if the header exists, null otherwise.
      */
@@ -8213,36 +8213,37 @@ class HttpHeaders {
         return this.headers.get(name.toLowerCase()) || null;
     }
     /**
-     * Appends a new header value to the existing set of
-     * header values.
+     * Appends a new value to the existing set of values for a header
+     * and returns them in a clone of the original instance.
      *
-     * @param {?} name The header name for which to append the values.
+     * @param {?} name The header name for which to append the value or values.
+     * @param {?} value The new value or array of values.
      *
-     * @param {?} value
-     * @return {?} A clone of the HTTP header object with the value appended.
+     * @return {?} A clone of the HTTP headers object with the value appended to the given header.
      */
     append(name, value) {
         return this.clone({ name, value, op: 'a' });
     }
     /**
-     * Sets a header value for a given name. If the header name already exists,
-     * its value is replaced with the given value.
+     * Sets or modifies a value for a given header in a clone of the original instance.
+     * If the header already exists, its value is replaced with the given value
+     * in the returned object.
      *
      * @param {?} name The header name.
-     * @param {?} value The value to set or overide for a given name.
+     * @param {?} value The value or values to set or overide for the given header.
      *
-     * @return {?} A clone of the HTTP header object with the newly set header value.
+     * @return {?} A clone of the HTTP headers object with the newly set header value.
      */
     set(name, value) {
         return this.clone({ name, value, op: 's' });
     }
     /**
-     * Deletes all header values for a given name.
+     * Deletes values for a given header in a clone of the original instance.
      *
      * @param {?} name The header name.
-     * @param {?=} value The header values to delete for a given name.
+     * @param {?=} value The value or values to delete for the given header.
      *
-     * @return {?} A clone of the HTTP header object.
+     * @return {?} A clone of the HTTP headers object with the given value deleted.
      */
     delete(name, value) {
         return this.clone({ name, value, op: 'd' });
@@ -10919,7 +10920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R3TargetBinder", function() { return R3TargetBinder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R3BoundTarget", function() { return R3BoundTarget; });
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -28505,7 +28506,7 @@ function publishFacade(global) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const VERSION$1 = new Version('8.2.9');
+const VERSION$1 = new Version('8.2.14');
 
 /**
  * @license
@@ -29366,6 +29367,7 @@ const _MARKER_TAG = 'mrk';
 const _FILE_TAG = 'file';
 const _SOURCE_TAG$1 = 'source';
 const _SEGMENT_SOURCE_TAG = 'seg-source';
+const _ALT_TRANS_TAG = 'alt-trans';
 const _TARGET_TAG = 'target';
 const _UNIT_TAG = 'trans-unit';
 const _CONTEXT_GROUP_TAG = 'context-group';
@@ -29505,6 +29507,7 @@ class XliffParser {
             // ignore those tags
             case _SOURCE_TAG$1:
             case _SEGMENT_SOURCE_TAG:
+            case _ALT_TRANS_TAG:
                 break;
             case _TARGET_TAG:
                 const innerTextStart = element.startSourceSpan.end.offset;
@@ -38229,7 +38232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -43698,6 +43701,7 @@ function bypassSanitizationTrustResourceUrl(trustedResourceUrl) {
  * @return {?}
  */
 function bypassSanitizationTrustString(trustedString, mode) {
+    // tslint:disable-next-line
     /** @type {?} */
     const trusted = (/** @type {?} */ (new String(trustedString)));
     trusted[BRAND] = mode;
@@ -61999,7 +62003,7 @@ if (false) {}
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.2.9');
+const VERSION = new Version('8.2.14');
 
 /**
  * @fileoverview added by tsickle
@@ -79394,7 +79398,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -80018,7 +80022,7 @@ if (false) {}
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.14');
 
 /**
  * @fileoverview added by tsickle
@@ -80120,7 +80124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -84092,7 +84096,7 @@ class By {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.14');
 
 /**
  * @fileoverview added by tsickle
@@ -84199,7 +84203,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /**
- * @license Angular v8.2.9
+ * @license Angular v8.2.14
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -84998,7 +85002,7 @@ function defaultUrlMatcher(segments, segmentGroup, route) {
  * the router would apply the redirect even when navigating to the redirect destination,
  * creating an endless loop.
  *
- * In the following example, supplying the 'full' `patchMatch` strategy ensures
+ * In the following example, supplying the 'full' `pathMatch` strategy ensures
  * that the router applies the redirect if and only if navigating to '/'.
  *
  * ```
@@ -91579,14 +91583,17 @@ if (false) {}
  *
  * Acts as a placeholder that Angular dynamically fills based on the current router state.
  *
+ * Each outlet can have a unique name, determined by the optional `name` attribute.
+ * The name cannot be set or changed dynamically. If not set, default value is "primary".
+ *
  * ```
  * <router-outlet></router-outlet>
  * <router-outlet name='left'></router-outlet>
  * <router-outlet name='right'></router-outlet>
  * ```
  *
- * A router outlet will emit an activate event any time a new component is being instantiated,
- * and a deactivate event when it is being destroyed.
+ * A router outlet emits an activate event when a new component is instantiated,
+ * and a deactivate event when a component is destroyed.
  *
  * ```
  * <router-outlet
@@ -92563,7 +92570,7 @@ function provideRouterInitializer() {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.14');
 
 /**
  * @fileoverview added by tsickle
@@ -92880,14 +92887,16 @@ class BaseLoginProvider {
      */
     loadScript(id, src, onload, async = true, inner_text_content = '') {
         // get document if platform is only browser
-        if (document && !document.getElementById(id)) {
+        if (typeof document !== 'undefined' && !document.getElementById(id)) {
             /** @type {?} */
             let signInJS = document.createElement('script');
             signInJS.async = async;
             signInJS.src = src;
             signInJS.onload = onload;
+            /*
             if (inner_text_content) // LinkedIn
                 signInJS.text = inner_text_content;
+            */
             document.head.appendChild(signInJS);
         }
     }
