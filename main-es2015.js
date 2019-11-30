@@ -619,7 +619,7 @@ let LoginComponent = class LoginComponent {
         }
         ;
         // check that server trusts us
-        this.http.get("http://54.164.165.203/oauth.php", {
+        this.http.get("https://54.164.165.203/oauth.php", {
             params: {
                 "idToken": idToken
             }
@@ -770,10 +770,10 @@ let UserService = class UserService {
         return "";
     }
     getAllUsers() {
-        return this.http.get("http://54.164.165.203/showUsers.php").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(data => data.map(data => new _models_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]().deserialize(data))));
+        return this.http.get("https://54.164.165.203/showUsers.php").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(data => data.map(data => new _models_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]().deserialize(data))));
     }
     getUserByID(id) {
-        return this.http.get("http://54.164.165.203/getUserByID.php", {
+        return this.http.get("https://54.164.165.203/getUserByID.php", {
             params: {
                 "id": id
             }
@@ -782,7 +782,7 @@ let UserService = class UserService {
     makeNewUser(user) {
         console.log("Creating new user w/ this data..");
         console.log(user);
-        this.http.get("http://54.164.165.203/createUser.php", {
+        this.http.get("https://54.164.165.203/createUser.php", {
             params: {
                 "id": user.id,
                 "name": user.name,
@@ -839,7 +839,7 @@ let YelpSearchService = class YelpSearchService {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         });
-        return this.http.get("http://54.164.165.203/yelp.php?businesses/search?", {
+        return this.http.get("https://54.164.165.203/yelp.php?businesses/search?", {
             headers: reqHeader,
             params: {
                 "location": "boston",
